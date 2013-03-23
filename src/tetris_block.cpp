@@ -263,7 +263,7 @@ int TetrisBlock::putBoard(const QColor grid[][BOARD_HEIGHT + 1]) const {
 				//Solid block
 				//Border check
 				if(baseX + i < 0 || baseX + i >= GRID_WIDTH
-				 || baseY + j < 0 || baseY + j >= GRID_HEIGHT) {
+				 || baseY - j < 0 || baseY - j >= GRID_HEIGHT) {
 					cout << "Border!" << endl;
 					return 1;
 				}
