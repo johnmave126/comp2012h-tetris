@@ -38,7 +38,7 @@ TetrisBlock::TetrisBlock(int type, int direction, QObject* parent, const char* n
 }
 
 TetrisBlock::TetrisBlock(const TetrisBlock& block)
-:QObject(block.parent(), block.name),
+:QObject(block.parent(), block.name()),
  id(block.id), face(block.face),
  x(block.x), y(block.y) {
 }
