@@ -18,7 +18,7 @@
 #include <qpainter.h>
 
 TetrisBoard::TetrisBoard(QWidget* parent, const char* name)
-:QWidget(parent, name), bg("background.jpg"),
+:QWidget(parent, name), bg(QPixmap("background.jpg")),
  state(Tetris::stopped) {
  	int i, j;
  	
