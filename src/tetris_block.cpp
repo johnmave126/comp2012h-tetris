@@ -254,7 +254,7 @@ int TetrisBlock::putBoard(const QColor grid[][BOARD_HEIGHT + 1]) const {
 	int i, j;
 	int baseX = x - (blockSize[id] >> 1),
 		baseY = GRID_HEIGHT - 1 - y - (blockSize[id] >> 1);
-	int zero = qRgb(0, 0, 0);
+	unsigned int zero = qRgb(0, 0, 0);
 	for(j = 0; j < blockSize[id]; j++) {
 		for(i = 0; i < blockSize[id]; i++) {
 			if(shape[face][id][i][j]) {
