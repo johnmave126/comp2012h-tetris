@@ -143,7 +143,7 @@ void TetrisBoard::paintEvent(QPaintEvent* e) {
 	int i, j;
 	unsigned int zero = qRgb(0, 0, 0);
 	QPainter painter;
-	QFont font("Times", 20, QFont::Bold);
+	QFont font("Helvetica [Cronyx]", 16, QFont::Bold);
 	painter.begin(this);
 	painter.setPen(QColor(0, 0, 0));
 	
