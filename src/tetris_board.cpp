@@ -148,7 +148,7 @@ void TetrisBoard::paintEvent(QPaintEvent* e) {
 	}
 	if(state == Tetris::stopped) {
 		//Notify user to start using up key
-		painter.drawText(0, 0, this.width(), this.height(),
+		painter.drawText(0, 0, this->width(), this->height(),
 			Qt::AlignCenter, "Press <up> to start");
 	}
 	else {
