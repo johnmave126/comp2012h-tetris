@@ -42,6 +42,6 @@ namespace Tetris {
         playing = 0,
         stopped
     };
-};
+}
 
 #endif
