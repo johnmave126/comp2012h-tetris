@@ -77,7 +77,7 @@ void TetrisStats::generateBlock() {
 		delete predictBlock;
 	}
 	//Random generate a block
-	predictBlock = new TetrisBlock(-1);
+	predictBlock = new TetrisBlock();
 	
 	//Call for repaint
 	repaint();

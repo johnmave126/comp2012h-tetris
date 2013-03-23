@@ -50,14 +50,14 @@ class TetrisBlock: public QObject {
 		 * return the pointer to the shape, a square region with shape in it
 		 * 0 for blank, 1 for solid
 		 */
-		void init(QString config);
+		static void init(QString config = "block.config");
 		
 		/*
 		 * getNumType
 		 *
 		 * return the number of type available
 		 */
-		int getNumType();
+		static int getNumType();
 		
 		//Non-static functions
 		/*
