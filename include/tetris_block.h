@@ -90,22 +90,22 @@ class TetrisBlock: public QObject {
 		void moveRight(const QColor** grid);
 		
 		/*
-		 * roateLeft
+		 * rotateRight
 		 *
 		 * grid: the current bottom state
 		 *
 		 * try to rotate counter-clockwise
 		 */
-		void roateLeft(const QColor** grid);
+		void rotateLeft(const QColor** grid);
 		
 		/*
-		 * roateRight
+		 * rotateRight
 		 *
 		 * grid: the current bottom state
 		 *
 		 * try to rotate clockwise
 		 */
-		void roateRight(const QColor** grid);
+		void rotateRight(const QColor** grid);
 		
 		/*
 		 * moveDown
