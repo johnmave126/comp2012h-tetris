@@ -49,7 +49,7 @@ TetrisManager::TetrisManager(QWidget* parent, const char* name)
 
 TetrisManager::~TetrisManager() {
 	//Free up memory
-	TetrisBlocl::destory();
+	TetrisBlock::destory();
 }
 
 void TetrisManager::blockFallen() {
