@@ -112,6 +112,7 @@ void TetrisBlock::init(QString config) {
 		}
 		for(j = 0; j < blockSize[i]; j++) {
 			row = fstream.readLine();
+			std::cout << row << std::endl;
 			for(k = 0; k < blockSize[i]; k++) {
 				if(row[k] == '.') {
 					shape[0][i][k][j] = false;
