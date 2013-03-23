@@ -20,6 +20,8 @@
 TetrisBoard::TetrisBoard(QWidget* parent, const char* name)
 :QWidget(parent, name), bg("background.jpg"),
  state(Tetris::stopped) {
+ 	int i, j;
+ 	
 	//Resize board to a fixed size
 	setFixedSize(BOARD_WIDTH, BOARD_HEIGHT);
 	
@@ -46,26 +48,26 @@ void TetrisBoard::reset() {
 
 //Simply pass the control to blocks
 void TetrisBoard::moveLeft() {
-	currentBlock.moveLeft(grid);
+	currentBlock.moveLeft(static_cast<const QColor**>grid);
 }
 
 void TetrisBoard::moveRight() {
-	currentBlock.moveRight(grid);
+	currentBlock.moveRight(static_cast<const QColor**>grid);
 }
 
 void TetrisBoard::rotateLeft() {
-	currentBlock.rotateLeft(grid);
+	currentBlock.rotateLeft(static_cast<const QColor**>grid);
 }
 
 void TetrisBoard::rotateRight() {
-	currentBlock.rotateRight(grid);
+	currentBlock.rotateRight(static_cast<const QColor**>grid);
 }
 
 void TetrisBoard::updateMovement() {
 	int i, j;
 	int rowCleared;
 	bool flag;
-	if(currentBlock.moveDown(grid)) {
+	if(currentBlock.moveDown(static_cast<QColor**>grid)) {
 		//Fixed to grid
 		
 		//Check whether can clear rows
@@ -114,7 +116,7 @@ void TetrisBoard::updateMovement() {
 void TetrisBoard::renewBlock(const TetrisBlock &block) {
 	currentBlock = block;
 	//Test if the block can be put
-	if(currentBlock.putBoard(grid)) {
+	if(currentBlock.putBoard(static_cast<const QColor**>grid)) {
 		//Game over
 		state = Tetris::stopped;
 		
