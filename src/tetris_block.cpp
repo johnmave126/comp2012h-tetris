@@ -255,7 +255,7 @@ int TetrisBlock::moveDown(QColor grid[][BOARD_HEIGHT + 1]) {
 int TetrisBlock::putBoard(const QColor grid[][BOARD_HEIGHT + 1]) const {
 	int i, j;
 	int baseX = x - (blockSize[id] >> 1),
-		baseY = GRID_HEIGHT - 1 - y - (blockSize[id] >> 1);
+		baseY = y + (blockSize[id] >> 1);
 	unsigned int zero = qRgb(0, 0, 0);
 	for(j = 0; j < blockSize[id]; j++) {
 		for(i = 0; i < blockSize[id]; i++) {
@@ -268,7 +268,7 @@ int TetrisBlock::putBoard(const QColor grid[][BOARD_HEIGHT + 1]) const {
 					return 1;
 				}
 				//Collision check
-				if(grid[i][j].rgb() != zero) {
+				if(grid[baseX + i][baseY - j].rgb() != zero) {
 					cout << "Collision!" << endl;
 					return 1;
 				}
