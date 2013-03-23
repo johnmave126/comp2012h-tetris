@@ -18,6 +18,7 @@
 
 #include <cstdlib>
 #include <cassert>
+#include <typeinfo>
 
 TetrisBlock::TetrisBlock(int type, int direction, QObject* parent, const char* name)
 :QObject(parent, name),
