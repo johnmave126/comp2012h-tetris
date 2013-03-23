@@ -28,8 +28,8 @@
 #define TET_SIZE		(20)
 
 //Size of grid used by board
-#define GRID_WIDTH		(20)
-#define GRID_HEIGHT		(40)
+#define GRID_WIDTH		(10)
+#define GRID_HEIGHT		(20)
 
 //Size of the board(px)
 #define BOARD_WIDTH		(TET_SIZE*GRID_WIDTH)

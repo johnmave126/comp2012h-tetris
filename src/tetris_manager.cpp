@@ -20,6 +20,7 @@
 TetrisManager::TetrisManager(QWidget* parent, const char* name)
 :QMainWindow(parent, name),
  state(Tetris::stopped) {
+ 	
 	//Resize window to a fixed size
 	setFixedSize(BOARD_WIDTH + 30 + 100, BOARD_HEIGHT + 20);
 	
