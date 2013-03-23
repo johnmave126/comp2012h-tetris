@@ -29,7 +29,7 @@ TetrisStats::TetrisStats(QWidget* parent, const char* name)
 	
 	//Move labels to appropriate location
 	levelLabel->move(0, 140);
-	scoreLabel->move(0, 150 + levelLabel.height());
+	scoreLabel->move(0, 150 + levelLabel->height());
 	
 }
 
@@ -87,7 +87,7 @@ void TetrisStats::generateBlock() {
 
 void TetrisStats::paintEvent(QPaintEvent* e) {
 	int i, j;
-	float tetSize;
+	int tetSize;
 	const bool** shape;
 	int size;
 	QColor blockCol;
@@ -103,7 +103,7 @@ void TetrisStats::paintEvent(QPaintEvent* e) {
 	if(predictBlock) {
 		shape = predictBlock->getShape(&size, &blockCol);
 		//Stretch the graph
-		tetSize = 1.0 * 100 / size;
+		tetSize = 100 / size;
 		painter.setBrush(blockCol);
 		for(i = 0; i < size; i++) {
 			for(j = 0; j < size; j++) {
