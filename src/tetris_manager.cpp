@@ -44,7 +44,7 @@ TetrisManager::TetrisManager(QWidget* parent, const char* name)
 		this, SLOT(updateMovement()));
 	
 	//Initialize blocks
-	TetrisBlock::init();
+	TetrisBlock::init("block.config");
 }
 
 TetrisManager::~TetrisManager() {
@@ -64,7 +64,7 @@ void TetrisManager::start() {
 	gameStats.reset();
 	
 	//Generate a block for game board
-	gameBoard.renewBlock(TetrisBlock());
+	gameBoard.renewBlock(TetrisBlock(-1));
 	
 	//Ask stats to generate next block
 	gameStats.generateBlock();
