@@ -2,7 +2,7 @@ TARGET = tetris
 INCLUDEPATH += include
 DEPENDPATH  += include src
 HEADERS += \
-	tetris.h tetris_common.h tetris_manager.h tetris_block.h tetris_board.h \
+	tetris_common.h tetris_manager.h tetris_block.h tetris_board.h \
 	tetris_stats.h
 SOURCES += \
 	tetris.cpp tetris_manager.cpp tetris_block.cpp tetris_board.h \
