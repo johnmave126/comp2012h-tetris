@@ -62,12 +62,13 @@ void TetrisManager::blockFallen() {
 }
 
 void TetrisManager::start() {
-	//Reset board and stats
-	gameBoard->reset();
-	gameStats->reset();
 	
 	//Generate a block for game board
 	gameBoard->renewBlock(TetrisBlock());
+	
+	//Reset board and stats
+	gameBoard->reset();
+	gameStats->reset();
 	
 	//Ask stats to generate next block
 	gameStats->generateBlock();
