@@ -18,6 +18,7 @@
 #include <qfile.h>
 #include <qdir.h>
 
+#incldue <iostream>
 #include <cstdlib>
 #include <cassert>
 
@@ -97,8 +98,6 @@ void TetrisBlock::init(QString config) {
 		blockColor[i].setRgb(r, g, b);
 		//Size
 		fstream >> blockSize[i];
-		//Jump unreadable character
-		fstream >> t;
 		//Shape
 		//Allocate memory
 		shape[0][i] = new bool*[blockSize[i]];
