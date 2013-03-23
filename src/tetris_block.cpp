@@ -18,14 +18,13 @@
 #include <qfile.h>
 #include <qdir.h>
 
-#include <iostream>
 #include <cstdlib>
 #include <cassert>
 
 TetrisBlock::TetrisBlock(int type, int direction, QObject* parent, const char* name)
 :QObject(parent, name),
  id(type), face(direction),
- x(GRID_WIDTH/2), y(GRID_WIDTH - 3) {
+ x(GRID_WIDTH/2), y(GRID_HEIGHT - 3) {
  	if(!TetrisBlock::initFlag) {
  		init();
  	}
@@ -113,7 +112,6 @@ void TetrisBlock::init(QString config) {
 		}
 		for(j = 0; j < blockSize[i]; j++) {
 			row = fstream.readLine();
-			std::cout << row << std::endl;
 			for(k = 0; k < blockSize[i]; k++) {
 				if(row[k] == '.') {
 					shape[0][i][k][j] = false;

@@ -49,18 +49,26 @@ void TetrisBoard::reset() {
 //Simply pass the control to blocks
 void TetrisBoard::moveLeft() {
 	currentBlock.moveLeft(grid);
+	//Call for repaint
+	repaint();
 }
 
 void TetrisBoard::moveRight() {
 	currentBlock.moveRight(grid);
+	//Call for repaint
+	repaint();
 }
 
 void TetrisBoard::rotateLeft() {
 	currentBlock.rotateLeft(grid);
+	//Call for repaint
+	repaint();
 }
 
 void TetrisBoard::rotateRight() {
 	currentBlock.rotateRight(grid);
+	//Call for repaint
+	repaint();
 }
 
 void TetrisBoard::updateMovement() {
