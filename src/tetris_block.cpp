@@ -104,8 +104,14 @@ void TetrisBlock::init(QString config) {
 		//Shape
 		//Allocate memory
 		shape[0][i] = new bool*[blockSize[i]];
+		shape[1][i] = new bool*[blockSize[i]];
+		shape[2][i] = new bool*[blockSize[i]];
+		shape[3][i] = new bool*[blockSize[i]];
 		for(j = 0; j < blockSize[i]; j++) {
 			shape[0][i][j] = new bool[blockSize[i]];
+			shape[1][i][j] = new bool[blockSize[i]];
+			shape[2][i][j] = new bool[blockSize[i]];
+			shape[3][i][j] = new bool[blockSize[i]];
 		}
 		for(j = 0; j < blockSize[i]; j++) {
 			row = fstream.readLine();
