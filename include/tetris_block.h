@@ -33,6 +33,12 @@ class TetrisBlock: public QObject {
 		 * contruct a block
 		 */
 		TetrisBlock(int type = -1, int direction = -1, QObject* parent = 0, const char* name = 0);
+		
+		/*
+		 * copy constructor
+		 */
+		TetrisBlock(const TetrisBlock&);
+		
 		~TetrisBlock();
 		
 		//Static functions
@@ -44,7 +50,7 @@ class TetrisBlock: public QObject {
 		 * return the pointer to the shape, a square region with shape in it
 		 * 0 for blank, 1 for solid
 		 */
-		void init(QString cofig = "block.config");
+		void init(QString config = "block.config");
 		
 		/*
 		 * getNumType

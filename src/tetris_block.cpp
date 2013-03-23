@@ -36,10 +36,15 @@ TetrisBlock::TetrisBlock(int type, int direction, QWidget* parent, const char* n
 	}
 }
 
+TetrisBlock::TetrisBlock(const TetrisBlock& block)
+:id(block.id), face(block.face),
+ x(block.x), y(block.y) {
+}
+
 TetrisBlock::~TetrisBlock() {
 }
 
-TetrisBlock TetrisBlock::init(QString cofig) {
+TetrisBlock TetrisBlock::init(QString config) {
 	int i, j, k;
 	int r, g, b;
 	QString row;
