@@ -17,8 +17,6 @@
 #include <qcolor.h>
 #include <qpainter.h>
 
-#include <iostream>
-
 TetrisBoard::TetrisBoard(QWidget* parent, const char* name)
 :QWidget(parent, name), bg("background.jpg"),
  state(Tetris::stopped) {
@@ -31,10 +29,6 @@ TetrisBoard::TetrisBoard(QWidget* parent, const char* name)
 	for(i = 0; i < BOARD_WIDTH; i++)
 		for(j = 0; j < BOARD_HEIGHT + 1; j++)
 			grid[i][j].setRgb(0, 0, 0);
-	
-	 	
- 	std::cout << grid[0][0].rgb() << std::endl;
- 	std::cout << qRgb(0, 0, 0) << std::endl;
 }
 
 TetrisBoard::~TetrisBoard() {
@@ -72,6 +66,7 @@ void TetrisBoard::rotateRight() {
 void TetrisBoard::updateMovement() {
 	int i, j;
 	int rowCleared;
+	unsigned int zero = qRgb(0, 0, 0);
 	bool flag;
 	if(currentBlock.moveDown(grid)) {
 		//Fixed to grid
@@ -84,7 +79,7 @@ void TetrisBoard::updateMovement() {
 			flag = true;
 			for(j = 0; j < GRID_WIDTH && flag; j++) {
 				//Blank block
-				if(grid[j][i + rowCleared].rgb() == 0) {
+				if(grid[j][i + rowCleared].rgb() == zero) {
 					flag = false;
 				}
 			}
@@ -133,6 +128,7 @@ void TetrisBoard::renewBlock(const TetrisBlock &block) {
 
 void TetrisBoard::paintEvent(QPaintEvent* e) {
 	int i, j, k;
+	unsigned int zero = qRgb(0, 0, 0);
 	QPainter painter;
 	painter.begin(this);
 	painter.setPen(QColor(0, 0, 0));
@@ -144,7 +140,7 @@ void TetrisBoard::paintEvent(QPaintEvent* e) {
 	for(i = 0; i < BOARD_WIDTH; i++) {
 		for(j = 0; j < BOARD_HEIGHT; j++) {
 			//The block is present
-			if(grid[i][j].rgb() != 0) {
+			if(grid[i][j].rgb() != zero) {
 				painter.setBrush(grid[i][j]);
 				painter.drawRect(i * TET_SIZE,
 					(GRID_HEIGHT - j -1) * TET_SIZE, 
