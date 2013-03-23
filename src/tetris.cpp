@@ -17,6 +17,8 @@
 int main(int argc, char* argv[])
 {
 	QApplication a(argc, argv);
+	//Set working directory to application directory
+	QDir::setCurrent(qApp->applicationDirPath());
 	QWidget* w = new TetrisManager();
 	a.setMainWidget(w);
 	w->show();

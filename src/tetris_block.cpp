@@ -69,11 +69,6 @@ void TetrisBlock::init(QString config) {
 	int i, j, k;
 	int r, g, b;
 	QString row;
-	QString tmpDir;
-	
-	//Set working directory to application directory
-	tmpDir = QDir::currentDirPath();
-	QDir::setCurrent(qApp->applicationDirPath());
 	
 	//Check file existence
 	assert(QFile::exists(config));
@@ -144,9 +139,6 @@ void TetrisBlock::init(QString config) {
 	}
 	//Close file
 	file.close();
-	
-	//Reset working directory
-	QDir::setCurrent(tmpDir);
 	
 	//Set flag
 	TetrisBlock::initFlag = true;
