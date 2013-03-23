@@ -112,7 +112,7 @@ int TetrisBlock::getNumType() {
 	return blockTypes;
 }
 
-const bool** TetrisBlock::getShape(int *size, QColor *color) {
+const bool** TetrisBlock::getShape(int *size, QColor *color) const {
 	if(size) {
 		//Set size
 		*size = blockSize[id];
