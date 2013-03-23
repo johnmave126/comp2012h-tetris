@@ -89,7 +89,7 @@ void TetrisStats::paintEvent(QPaintEvent* e) {
 	const bool** shape;
 	int size;
 	QColor blockCol;
-	QPainter painter();
+	QPainter painter;
 	painter.begin(this);
 	painter.setPen(QColor(0, 0, 0));
 	
