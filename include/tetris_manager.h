@@ -70,11 +70,11 @@ class TetrisManager: public QMainWindow {
 		//Game stats
 		TetrisStats gameStats;
 		
-		//Current condition
-		Tetris::Condition state;
-		
 		//Helper timer
 		QTimer timer;
+		
+		//Current condition
+		Tetris::Condition state;
 };
 
 #endif

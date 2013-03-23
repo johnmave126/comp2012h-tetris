@@ -30,9 +30,9 @@ TetrisManager::TetrisManager(QWidget* parent, const char* name)
 	gameStats.move(BOARD_WIDTH + 20, 10);
 	
 	//Connect events related to board
-	connect(gameBoard, SIGNAL(gameover()),
+	connect(&gameBoard, SIGNAL(gameover()),
 		this, SLOT(gameover()));
-	connect(gameBoard, SIGNAL(blockFallen()),
+	connect(&gameBoard, SIGNAL(blockFallen()),
 		this, SLOT(blockFallen()));
 	
 	//Connect events between board and stats
