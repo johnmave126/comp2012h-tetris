@@ -13,7 +13,6 @@
 #define _TETRIS_STATS_H
 
 #include "tetris_common.h"
-#include "tetris_stats.h"
 #include "tetris_block.h"
 #include <qwidget.h>
 #include <qpixmap.h>
