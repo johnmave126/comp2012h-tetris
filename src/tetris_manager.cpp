@@ -15,7 +15,7 @@
 #include "tetris_block.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
-#include <qtimer->h>
+#include <qtimer.h>
 
 TetrisManager::TetrisManager(QWidget* parent, const char* name)
 :QMainWindow(parent, name),
