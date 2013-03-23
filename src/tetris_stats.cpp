@@ -19,15 +19,17 @@
 
 TetrisStats::TetrisStats(QWidget* parent, const char* name)
 :QWidget(parent, name),
- predictBlock(NULL), level(1), score(0),
- levelLabel("Level: 1", this, "level"),
- scoreLabel("Score: 0", this, "score") {
+ predictBlock(NULL), level(1), score(0) {
 	//Resize stats to a fixed size
 	setFixedSize(100, BOARD_HEIGHT);
 	
+	//Generate Labels
+	levelLabel = new QLabel("Level: 1", this, "level");
+	scoreLabel = new QLabel("Score: 0", this, "score");
+	
 	//Move labels to appropriate location
-	levelLabel.move(0, 140);
-	scoreLabel.move(0, 150 + levelLabel.height());
+	levelLabel->move(0, 140);
+	scoreLabel->move(0, 150 + levelLabel.height());
 	
 }
 
@@ -52,8 +54,8 @@ void TetrisStats::reset() {
 		predictBlock = NULL;
 	}
 	//Reset level and scores
-	levelLabel.setText("Level: 1");
-	scoreLabel.setText("Score: 0");
+	levelLabel->setText("Level: 1");
+	scoreLabel->setText("Score: 0");
 	level = 1;
 	score = 0;
 	
@@ -68,8 +70,8 @@ void TetrisStats::rowClear(int num) {
 	level = (score >= 900)?(10):(1+score/100);
 	
 	//Set labels
-	levelLabel.setText(QString("Level: %1").arg(level));
-	scoreLabel.setText(QString("Score: %1").arg(score));
+	levelLabel->setText(QString("Level: %1").arg(level));
+	scoreLabel->setText(QString("Score: %1").arg(score));
 }
 
 void TetrisStats::generateBlock() {

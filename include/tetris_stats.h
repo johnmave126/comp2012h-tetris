@@ -79,7 +79,7 @@ class TetrisStats: public QWidget {
 		int level, score;
 		
 		//QLabel for level and score
-		QLabel levelLabel, scoreLabel;
+		QLabel *levelLabel, *scoreLabel;
 };
 
 #endif
