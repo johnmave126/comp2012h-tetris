@@ -17,6 +17,7 @@
 #include "tetris_block.h"
 #include <qwidget.h>
 #include <qpixmap.h>
+#include <qlabel.h>
 
 class TetrisStats: public QWidget {
 	// All classes that contain signals or slots
