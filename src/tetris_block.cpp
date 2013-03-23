@@ -25,6 +25,10 @@ TetrisBlock::TetrisBlock(int type, int direction, QObject* parent, const char* n
 :QObject(parent, name),
  id(type), face(direction),
  x(GRID_WIDTH/2), y(GRID_WIDTH - 3) {
+ 	if(!TetrisBlock::initFlag) {
+ 		init();
+ 	}
+ 	
  	//Validate id and face
  	assert(id >= -1 && id < blockTypes);
  	assert(face >= -1 && face < 4);
@@ -43,6 +47,9 @@ TetrisBlock::TetrisBlock(const TetrisBlock& block)
 :QObject(block.parent(), block.name()),
  id(block.id), face(block.face),
  x(block.x), y(block.y) {
+ 	if(!TetrisBlock::initFlag) {
+ 		init();
+ 	}
 }
 
 TetrisBlock& TetrisBlock::operator=(const TetrisBlock& block) {
@@ -134,6 +141,9 @@ void TetrisBlock::init(QString config) {
 	
 	//Reset working directory
 	QDir::setCurrent(tmpDir);
+	
+	//Set flag
+	TetrisBlock::initFlag = true;
 }
 
 void TetrisBlock::destroy() {
@@ -199,6 +209,7 @@ void TetrisBlock::paint(QPainter *painter) const {
 }
 
 //Static members
+bool TetrisBlock::initFlag = false;
 int TetrisBlock::blockTypes;
 QColor *TetrisBlock::blockColor;
 int *TetrisBlock::blockSize;

@@ -157,6 +157,8 @@ class TetrisBlock: public QObject {
 	private:
 		//Static members
 		//Initialize at the beginning
+		static bool initFlag;
+		
 		//Number of block type
 		static int blockTypes;
 		

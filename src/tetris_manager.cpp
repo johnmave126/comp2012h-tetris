@@ -42,9 +42,6 @@ TetrisManager::TetrisManager(QWidget* parent, const char* name)
 	//Connect events related to timer
 	connect(&timer, SIGNAL(timeout()),
 		this, SLOT(updateMovement()));
-	
-	//Initialize blocks
-	TetrisBlock::init();
 }
 
 TetrisManager::~TetrisManager() {
