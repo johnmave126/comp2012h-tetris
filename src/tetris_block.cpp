@@ -10,6 +10,7 @@
  */
 
 #include "tetris_block.h"
+#include <qapplication.h>
 #include <qobject.h>
 #include <qcolor.h>
 #include <qpainter.h>
