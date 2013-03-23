@@ -140,7 +140,7 @@ void TetrisBoard::paintEvent(QPaintEvent* e) {
 			//The block is present
 			if(grid[i][j].rgb() != 0) {
 				painter.setBrush(grid[i][j]);
-				paiinter.drawRect(i * TET_SIZE,
+				painter.drawRect(i * TET_SIZE,
 					(GRID_HEIGHT - j -1) * TET_SIZE, 
 					TET_SIZE, TET_SIZE);
 			}
