@@ -18,7 +18,7 @@
 #include <qfile.h>
 #include <qdir.h>
 
-#incldue <iostream>
+#include <iostream>
 #include <cstdlib>
 #include <cassert>
 
