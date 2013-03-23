@@ -223,6 +223,7 @@ void TetrisBlock::rotateRight(const QColor grid[][BOARD_HEIGHT + 1]) {
 
 int TetrisBlock::moveDown(QColor grid[][BOARD_HEIGHT + 1]) {
 	int i, j;
+	int baseX, baseY;
 	//Assume to move down
 	y--;
 	if(putBoard(grid)) {
@@ -230,8 +231,18 @@ int TetrisBlock::moveDown(QColor grid[][BOARD_HEIGHT + 1]) {
 		y++;
 		
 		//Put it on board
+		baseX = x - (blockSize[id] >> 1);
+		baseY = y + (blockSize[id] >> 1);
 		
-		
+		for(j = 0; j < blockSize[id]; j++) {
+			for(i = 0; i < blockSize[id]; i++) {
+				if(shape[face][id][i][j]) {
+					//Solid block
+					//Put it
+					grid[i + baseX][baseY - j] = colorBlock[id];
+				}
+			}
+		}
 		return 1;
 	}
 	else {
@@ -240,13 +251,33 @@ int TetrisBlock::moveDown(QColor grid[][BOARD_HEIGHT + 1]) {
 }
 
 int TetrisBlock::putBoard(const QColor grid[][BOARD_HEIGHT + 1]) const {
+	int i, j;
+	int baseX = x - (blockSize[id] >> 1),
+		baseY = GRID_HEIGHT - 1 - y - (blockSize[id] >> 1);
+	int zero = qRgb(0, 0, 0);
+	for(j = 0; j < blockSize[id]; j++) {
+		for(i = 0; i < blockSize[id]; i++) {
+			if(shape[face][id][i][j]) {
+				//Solid block
+				//Border check
+				if(baseX + i < 0 || baseX + i >= GRID_WIDTH
+					|| baseY + j < 0 || baseY + j >= GRID_HEIGHT) {
+						return 1;
+				}
+				//Collision check
+				if(grid[i][j].rgb() != zero) {
+					return 1;
+				}
+			}
+		}
+	}
 	return 0;
 }
 
 void TetrisBlock::paint(QPainter *painter) const {
 	int i, j;
 	int baseX = x - (blockSize[id] >> 1),
-		baseY = GRID_HEIGHT - y - (blockSize[id] >> 1);
+		baseY = GRID_HEIGHT - 1 - y - (blockSize[id] >> 1);
 	painter->setBrush(blockColor[id]);
 	//Pass untouchable region
 	for(j = 0; baseY + j < 0; j++) {

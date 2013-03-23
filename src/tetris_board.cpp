@@ -155,7 +155,7 @@ void TetrisBoard::paintEvent(QPaintEvent* e) {
 			if(grid[i][j].rgb() != zero) {
 				painter.setBrush(grid[i][j]);
 				painter.drawRect(i * TET_SIZE,
-					(GRID_HEIGHT - j -1) * TET_SIZE, 
+					(GRID_HEIGHT - j - 1) * TET_SIZE, 
 					TET_SIZE, TET_SIZE);
 			}
 		}
