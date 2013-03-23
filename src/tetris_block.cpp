@@ -120,7 +120,7 @@ const bool** TetrisBlock::getShape(int *size, QColor *color) {
 		//Set color
 		*color = blockColor[id];
 	}
-	return shape[face][id];
+	return cosnt_cast<const bool**>shape[face][id];
 }
 
 void TetrisBlock::moveLeft(const QColor** grid) {
