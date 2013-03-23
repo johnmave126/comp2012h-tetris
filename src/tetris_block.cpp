@@ -18,10 +18,8 @@
 #include <qfile.h>
 #include <qdir.h>
 
-#include <iostream>
 #include <cstdlib>
 #include <cassert>
-using namespace std;
 
 TetrisBlock::TetrisBlock(int type, int direction, QObject* parent, const char* name)
 :QObject(parent, name),
@@ -264,12 +262,10 @@ int TetrisBlock::putBoard(const QColor grid[][BOARD_HEIGHT + 1]) const {
 				//Border check
 				if(baseX + i < 0 || baseX + i >= GRID_WIDTH
 				 || baseY - j < 0 || baseY - j >= GRID_HEIGHT) {
-					cout << "Border!" << endl;
 					return 1;
 				}
 				//Collision check
 				if(grid[baseX + i][baseY - j].rgb() != zero) {
-					cout << "Collision!" << endl;
 					return 1;
 				}
 			}
