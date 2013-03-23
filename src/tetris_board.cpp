@@ -15,6 +15,7 @@
 #include <qapplication.h>
 #include <qpixmap.h>
 #include <qcolor.h>
+#include <qfont.h>
 #include <qpainter.h>
 
 TetrisBoard::TetrisBoard(QWidget* parent, const char* name)
@@ -142,6 +143,7 @@ void TetrisBoard::paintEvent(QPaintEvent* e) {
 	int i, j;
 	unsigned int zero = qRgb(0, 0, 0);
 	QPainter painter;
+	QFont font("Times", 20, QFont::Bold);
 	painter.begin(this);
 	painter.setPen(QColor(0, 0, 0));
 	
@@ -161,6 +163,7 @@ void TetrisBoard::paintEvent(QPaintEvent* e) {
 		}
 	}
 	if(state == Tetris::stopped) {
+		painter.setFont(font);
 		//Notify user to start using up key
 		painter.drawText(0, 0, this->width(), this->height(),
 			Qt::AlignCenter, "Press <up> to start");
