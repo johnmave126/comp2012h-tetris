@@ -69,6 +69,7 @@ void TetrisBlock::init(QString config) {
 	int i, j, k;
 	int r, g, b;
 	QString row;
+	char t;
 	
 	//Check file existence
 	assert(QFile::exists(config));
@@ -96,6 +97,8 @@ void TetrisBlock::init(QString config) {
 		blockColor[i].setRgb(r, g, b);
 		//Size
 		fstream >> blockSize[i];
+		//Jump unreadable character
+		fstream >> t;
 		//Shape
 		//Allocate memory
 		shape[0][i] = new bool*[blockSize[i]];
