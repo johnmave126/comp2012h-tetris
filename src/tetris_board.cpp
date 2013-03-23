@@ -127,7 +127,7 @@ void TetrisBoard::renewBlock(const TetrisBlock &block) {
 }
 
 void TetrisBoard::paintEvent(QPaintEvent* e) {
-	int i, j, k;
+	int i, j;
 	unsigned int zero = qRgb(0, 0, 0);
 	QPainter painter;
 	painter.begin(this);
