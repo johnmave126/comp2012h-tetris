@@ -39,6 +39,11 @@ class TetrisBlock: public QObject {
 		 */
 		TetrisBlock(const TetrisBlock&);
 		
+		/*
+		 * assign operator
+		 */
+		TetrisBlock& operator=(const TetrisBlock&);
+		
 		~TetrisBlock();
 		
 		//Static functions

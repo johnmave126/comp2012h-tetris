@@ -43,6 +43,16 @@ TetrisBlock::TetrisBlock(const TetrisBlock& block)
  x(block.x), y(block.y) {
 }
 
+TetrisBlock& TetrisBlock::operator=(const TetrisBlock& block) {
+	//Do the copy
+	id = block.id;
+	face = block.face;
+	x = block.x;
+	y = block.y;
+	
+	return *this;
+}
+
 TetrisBlock::~TetrisBlock() {
 }
 
