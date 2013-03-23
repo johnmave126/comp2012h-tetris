@@ -72,6 +72,9 @@ class TetrisStats: public QWidget {
 		virtual void paintEvent(QPaintEvent*);
 		
 	private:
+		//Static members
+		static int levelSet[10];
+		
 		//Predicted block
 		TetrisBlock *predictBlock;
 		

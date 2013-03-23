@@ -20,6 +20,7 @@
 TetrisStats::TetrisStats(QWidget* parent, const char* name)
 :QWidget(parent, name),
  predictBlock(NULL), level(1), score(0) {
+ 	int i;
 	//Resize stats to a fixed size
 	setFixedSize(100, BOARD_HEIGHT);
 	
@@ -30,7 +31,6 @@ TetrisStats::TetrisStats(QWidget* parent, const char* name)
 	//Move labels to appropriate location
 	levelLabel->move(0, 140);
 	scoreLabel->move(0, 150 + levelLabel->height());
-	
 }
 
 TetrisStats::~TetrisStats() {
@@ -64,10 +64,13 @@ void TetrisStats::reset() {
 }
 
 void TetrisStats::rowClear(int num) {
+	int i;
 	//Add up score
-	score += 10 * num * num;
+	score += 10 * num * num * level;
 	//Recalculate level
-	level = (score >= 900)?(10):(1+score/100);
+	for(i = 0; i < 10 && score >= levelSet[i]; i++) {
+	}
+	level = i + 1;
 	
 	//Set labels
 	levelLabel->setText(QString("Level: %1").arg(level));
@@ -116,3 +119,18 @@ void TetrisStats::paintEvent(QPaintEvent* e) {
 	}
 	painter.end();
 }
+
+//Static member
+//Level sets
+int TetrisStats::levelSet[10] = {
+	100,
+	100 << 1,
+	100 << 2,
+	100 << 3,
+	100 << 4,
+	100 << 5,
+	100 << 6,
+	100 << 7,
+	100 << 8,
+	100 << 9,
+};
