@@ -65,13 +65,13 @@ class TetrisManager: public QMainWindow {
 		
 	private:
 		//Game board
-		TetrisBoard gameBoard;
+		TetrisBoard *gameBoard;
 		
 		//Game stats
-		TetrisStats gameStats;
+		TetrisStats *gameStats;
 		
 		//Helper timer
-		QTimer timer;
+		QTimer *timer;
 		
 		//Current condition
 		Tetris::Condition state;
