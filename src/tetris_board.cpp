@@ -17,10 +17,14 @@
 #include <qcolor.h>
 #include <qpainter.h>
 
+#include <iostream>
+
 TetrisBoard::TetrisBoard(QWidget* parent, const char* name)
-:QWidget(parent, name), bg(QPixmap("background.jpg")),
+:QWidget(parent, name), bg("background.jpg"),
  state(Tetris::stopped) {
  	int i, j;
+ 	
+ 	std::cout << bg.width() << ',' << bg.height() << std::endl;
  	
 	//Resize board to a fixed size
 	setFixedSize(BOARD_WIDTH, BOARD_HEIGHT);
@@ -132,7 +136,7 @@ void TetrisBoard::paintEvent(QPaintEvent* e) {
 	painter.setPen(QColor(0, 0, 0));
 	
 	//Draw background
-	painter.drawPixmap(0, 0, bg);
+	bitBlt(this, 0, 0, &bg, 0, 0, bg.width(), bg.height());
 	
 	//Draw blocks
 	for(i = 0; i < BOARD_WIDTH; i++) {
