@@ -10,6 +10,7 @@
 */
 
 #include <qapplication.h>
+#include <qdir.h>
 #include "tetris_manager.h"
 #include <cstdlib>
 #include <ctime>
