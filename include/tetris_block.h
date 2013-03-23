@@ -47,8 +47,7 @@ class TetrisBlock: public QObject {
 		 *
 		 * config: the filename of the block config file
 		 *
-		 * return the pointer to the shape, a square region with shape in it
-		 * 0 for blank, 1 for solid
+		 * read from config file and initialize the shapes
 		 */
 		static void init(QString config = "block.config");
 		
@@ -58,6 +57,13 @@ class TetrisBlock: public QObject {
 		 * return the number of type available
 		 */
 		static int getNumType();
+		
+		/*
+		 * destory
+		 *
+		 * free all the memory allocated in init
+		 */
+		static void destroy();
 		
 		//Non-static functions
 		/*

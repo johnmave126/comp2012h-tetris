@@ -77,6 +77,11 @@ void TetrisBlock::init(QString config) {
 		//Size
 		fstream >> blockSize[i];
 		//Shape
+		//Allocate memory
+		shape[0][i] = new bool*[blockSize[i]];
+		for(j = 0; j < blockSize[i]; j++) {
+			shape[0][i][j] = new bool[blockSize[i]];
+		}
 		for(j = 0; j < blockSize[i]; j++) {
 			row = fstream.readLine();
 			for(k = 0; k < blockSize[i]; k++) {
@@ -106,6 +111,31 @@ void TetrisBlock::init(QString config) {
 			}
 		}
 	}
+	//Close file
+	file.close();
+}
+
+void TetrisBlock::destroy() {
+	int i, j;
+	//Free memory
+	for(i = 0; i < blockTypes; i++) {
+		for(j = 0; j < blockSize[i]; j++) {
+			delete [] shape[0][i][j];
+			delete [] shape[1][i][j];
+			delete [] shape[2][i][j];
+			delete [] shape[3][i][j];
+		}
+		delete [] shape[0][i];
+		delete [] shape[1][i];
+		delete [] shape[2][i];
+		delete [] shape[3][i];
+	}
+	delete [] shape[0];
+	delete [] shape[1];
+	delete [] shape[2];
+	delete [] shape[3];
+	delete [] blockColor;
+	delete [] blockSize;
 }
 
 int TetrisBlock::getNumType() {
