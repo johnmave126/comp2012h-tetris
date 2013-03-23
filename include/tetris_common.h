@@ -36,7 +36,7 @@
 #define BOARD_HEIGHT	(TET_SIZE*GRID_HEIGHT)
 
 //Container namespace
-class Tetris {
+namespace Tetris {
     //The state of game condition
     enum Condition {
         playing = 0,
