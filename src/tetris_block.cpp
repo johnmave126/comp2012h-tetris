@@ -15,6 +15,7 @@
 #include <qpainter.h>
 #include <qstring.h>
 #include <qfile.h>
+#include <qdir.h>
 
 #include <cstdlib>
 #include <cassert>
@@ -60,6 +61,12 @@ void TetrisBlock::init(QString config) {
 	int i, j, k;
 	int r, g, b;
 	QString row;
+	QString tmpDir;
+	
+	//Set working directory to application directory
+	tmpDir = QDir::currentDirPath();
+	QDir::setCurrent(qApp->applicationDirPath());
+	
 	//Check file existence
 	assert(QFile::exists(config));
 	
@@ -123,6 +130,9 @@ void TetrisBlock::init(QString config) {
 	}
 	//Close file
 	file.close();
+	
+	//Reset working directory
+	QDir::setCurrent(tmpDir);
 }
 
 void TetrisBlock::destroy() {
