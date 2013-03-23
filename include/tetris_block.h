@@ -164,7 +164,7 @@ class TetrisBlock: public QObject {
 		int face;
 		
 		//The location of the block on board
-		int x, y
+		int x, y;
 };
 
 #endif
