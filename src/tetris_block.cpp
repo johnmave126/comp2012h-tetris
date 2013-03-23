@@ -17,8 +17,9 @@
 #include <qfile.h>
 
 #include <cstdlib>
+#include <cassert>
 
-TetrisBlock::TetrisBlock(int type, int direction, QWidget* parent, const char* name)
+TetrisBlock::TetrisBlock(int type, int direction, QObject* parent, const char* name)
 :QObject(parent, name),
  id(type), face(direction),
  x(GRID_WIDTH/2), y(GRID_WIDTH - 3) {
@@ -44,7 +45,7 @@ TetrisBlock::TetrisBlock(const TetrisBlock& block)
 TetrisBlock::~TetrisBlock() {
 }
 
-TetrisBlock TetrisBlock::init(QString config) {
+void TetrisBlock::init(QString config) {
 	int i, j, k;
 	int r, g, b;
 	QString row;
@@ -79,10 +80,10 @@ TetrisBlock TetrisBlock::init(QString config) {
 			row = fstream.readLine();
 			for(k = 0; k < blockSize[i]; k++) {
 				if(row[k] == '.') {
-					shape[0][k][j] = false;
+					shape[0][i][k][j] = false;
 				}
 				else {
-					shape[0][k][j] = true;
+					shape[0][i][k][j] = true;
 				}
 			}
 		}
@@ -90,17 +91,17 @@ TetrisBlock TetrisBlock::init(QString config) {
 		//Unpack to improve performance
 		for(j = 0; j < blockSize[i]; j++) {
 			for(k = 0; k < blockSize[i]; k++) {
-				shape[1][j][k] = shape[0][k][blockSize[i]-j-1];
+				shape[1][i][j][k] = shape[0][i][k][blockSize[i]-j-1];
 			}
 		}
 		for(j = 0; j < blockSize[i]; j++) {
 			for(k = 0; k < blockSize[i]; k++) {
-				shape[2][j][k] = shape[1][k][blockSize[i]-j-1];
+				shape[2][i][j][k] = shape[1][i][k][blockSize[i]-j-1];
 			}
 		}
 		for(j = 0; j < blockSize[i]; j++) {
 			for(k = 0; k < blockSize[i]; k++) {
-				shape[3][j][k] = shape[2][k][blockSize[i]-j-1];
+				shape[3][i][j][k] = shape[2][i][k][blockSize[i]-j-1];
 			}
 		}
 	}
@@ -122,27 +123,27 @@ const bool** TetrisBlock::getShape(int *size, QColor *color) {
 	return shape[face][id];
 }
 
-void moveLeft(const QColor** grid) {
+void TetrisBlock::moveLeft(const QColor** grid) {
 }
 
-void moveRight(const QColor** grid) {
+void TetrisBlock::moveRight(const QColor** grid) {
 }
 
-void rotateLeft(const QColor** grid) {
+void TetrisBlock::rotateLeft(const QColor** grid) {
 }
 
-void rotateRight(const QColor** grid) {
+void TetrisBlock::rotateRight(const QColor** grid) {
 }
 
-int moveDown(QColor** grid) {
+int TetrisBlock::moveDown(QColor** grid) {
 	return 0;
 }
 
-int putBoard(const QColor** grid) const {
+int TetrisBlock::putBoard(const QColor** grid) const {
 	return 0;
 }
 
-void paint(QPainter *painter) const {
+void TetrisBlock::paint(QPainter *painter) const {
 }
 
 //Static members
