@@ -84,7 +84,7 @@ class TetrisBlock: public QObject {
 		 *
 		 * try to move to left
 		 */
-		void moveLeft(const QColor** grid);
+		void moveLeft(const QColor grid[][BOARD_HEIGHT + 1]);
 		
 		/*
 		 * moveRight
@@ -93,7 +93,7 @@ class TetrisBlock: public QObject {
 		 *
 		 * try to move to right
 		 */
-		void moveRight(const QColor** grid);
+		void moveRight(const QColor grid[][BOARD_HEIGHT + 1]);
 		
 		/*
 		 * rotateRight
@@ -102,7 +102,7 @@ class TetrisBlock: public QObject {
 		 *
 		 * try to rotate counter-clockwise
 		 */
-		void rotateLeft(const QColor** grid);
+		void rotateLeft(const QColor grid[][BOARD_HEIGHT + 1]);
 		
 		/*
 		 * rotateRight
@@ -111,7 +111,7 @@ class TetrisBlock: public QObject {
 		 *
 		 * try to rotate clockwise
 		 */
-		void rotateRight(const QColor** grid);
+		void rotateRight(const QColor grid[][BOARD_HEIGHT + 1]);
 		
 		/*
 		 * moveDown
@@ -122,7 +122,7 @@ class TetrisBlock: public QObject {
 		 * try to move down
 		 * return 0 for success, 1 for fixed to grid
 		 */
-		int moveDown(QColor** grid);
+		int moveDown(QColor grid[][BOARD_HEIGHT + 1]);
 		
 		/*
 		 * putBoard
@@ -132,7 +132,7 @@ class TetrisBlock: public QObject {
 		 * judge if it is possible to put on board
 		 * return 0 for success, 1 for game over
 		 */
-		int putBoard(const QColor** grid) const;
+		int putBoard(const QColor grid[][BOARD_HEIGHT + 1]) const;
 		
 		/*
 		 * paint

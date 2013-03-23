@@ -154,23 +154,23 @@ const bool** TetrisBlock::getShape(int *size, QColor *color) const {
 	return const_cast<const bool**>(shape[face][id]);
 }
 
-void TetrisBlock::moveLeft(const QColor** grid) {
+void TetrisBlock::moveLeft(const QColor grid[][BOARD_HEIGHT + 1]) {
 }
 
-void TetrisBlock::moveRight(const QColor** grid) {
+void TetrisBlock::moveRight(const QColor grid[][BOARD_HEIGHT + 1]) {
 }
 
-void TetrisBlock::rotateLeft(const QColor** grid) {
+void TetrisBlock::rotateLeft(const QColor grid[][BOARD_HEIGHT + 1]) {
 }
 
-void TetrisBlock::rotateRight(const QColor** grid) {
+void TetrisBlock::rotateRight(const QColor grid[][BOARD_HEIGHT + 1]) {
 }
 
-int TetrisBlock::moveDown(QColor** grid) {
+int TetrisBlock::moveDown(QColor grid[][BOARD_HEIGHT + 1]) {
 	return 0;
 }
 
-int TetrisBlock::putBoard(const QColor** grid) const {
+int TetrisBlock::putBoard(const QColor grid[][BOARD_HEIGHT + 1]) const {
 	return 0;
 }
 
