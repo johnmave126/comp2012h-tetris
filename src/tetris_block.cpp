@@ -188,19 +188,57 @@ const bool** TetrisBlock::getShape(int *size, QColor *color) const {
 }
 
 void TetrisBlock::moveLeft(const QColor grid[][BOARD_HEIGHT + 1]) {
+	//Assume to move
+	x--;
+	if(putBoard(grid)) {
+		//Cannot move
+		x++;
+	}
 }
 
 void TetrisBlock::moveRight(const QColor grid[][BOARD_HEIGHT + 1]) {
+	//Assume to move
+	x++;
+	if(putBoard(grid)) {
+		//Cannot move
+		x--;
+	}
 }
 
 void TetrisBlock::rotateLeft(const QColor grid[][BOARD_HEIGHT + 1]) {
+	//Assume to rotate
+	face = (face + 3) % 4;
+	if(putBoard(grid)) {
+		//Cannot move
+		face = (face + 1) % 4;
+	}
 }
 
 void TetrisBlock::rotateRight(const QColor grid[][BOARD_HEIGHT + 1]) {
+	//Assume to rotate
+	face = (face + 1) % 4;
+	if(putBoard(grid)) {
+		//Cannot move
+		face = (face + 3) % 4;
+	}
 }
 
 int TetrisBlock::moveDown(QColor grid[][BOARD_HEIGHT + 1]) {
-	return 0;
+	int i, j;
+	//Assume to move down
+	y--;
+	if(putBoard(grid)) {
+		//Cannot move
+		y++;
+		
+		//Put it on board
+		
+		
+		return 1;
+	}
+	else {
+		return 0;
+	}
 }
 
 int TetrisBlock::putBoard(const QColor grid[][BOARD_HEIGHT + 1]) const {
@@ -208,6 +246,25 @@ int TetrisBlock::putBoard(const QColor grid[][BOARD_HEIGHT + 1]) const {
 }
 
 void TetrisBlock::paint(QPainter *painter) const {
+	int i, j;
+	int baseX = x - (blockSize[id] >> 1),
+		baseY = GRID_HEIGHT - y - (blockSize[id] >> 1);
+	painter->setBrush(blockColor[id]);
+	//Pass untouchable region
+	for(j = 0; baseY + j < 0; j++) {
+	}
+	for(; j < blockSize[id] && baseY + j < GRID_HEIGHT; j++) {
+		//Pass untouchable region
+		for(i = 0; baseX + i < 0; i++){
+		}
+		for(; i < blockSize[id] && baseX + i < GRID_WIDTH; i++) {
+			if(shape[face][id][i][j]) {
+				//Draw it
+				painter->drawRect((baseX + i) * TET_SIZE, (baseY + j) * TET_SIZE,
+					TET_SIZE, TET_SIZE);
+			}
+		}
+	}
 }
 
 //Static members

@@ -74,6 +74,9 @@ void TetrisManager::start() {
 	
 	//Begin timer
 	timer->start(1000 - (gameStats->getLevel() - 1) * 100, true);
+	
+	//Set flag
+	state = Tetris::playing;
 }
 
 void TetrisManager::gameover() {
