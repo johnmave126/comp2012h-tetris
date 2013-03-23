@@ -98,6 +98,8 @@ void TetrisBlock::init(QString config) {
 		blockColor[i].setRgb(r, g, b);
 		//Size
 		fstream >> blockSize[i];
+		//Read newline
+		fstream >> t;
 		//Shape
 		//Allocate memory
 		shape[0][i] = new bool*[blockSize[i]];
