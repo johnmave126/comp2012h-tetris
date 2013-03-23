@@ -48,26 +48,26 @@ void TetrisBoard::reset() {
 
 //Simply pass the control to blocks
 void TetrisBoard::moveLeft() {
-	currentBlock.moveLeft(static_cast<const QColor**>grid);
+	currentBlock.moveLeft(grid);
 }
 
 void TetrisBoard::moveRight() {
-	currentBlock.moveRight(static_cast<const QColor**>grid);
+	currentBlock.moveRight(grid);
 }
 
 void TetrisBoard::rotateLeft() {
-	currentBlock.rotateLeft(static_cast<const QColor**>grid);
+	currentBlock.rotateLeft(grid);
 }
 
 void TetrisBoard::rotateRight() {
-	currentBlock.rotateRight(static_cast<const QColor**>grid);
+	currentBlock.rotateRight(grid);
 }
 
 void TetrisBoard::updateMovement() {
 	int i, j;
 	int rowCleared;
 	bool flag;
-	if(currentBlock.moveDown(static_cast<QColor**>grid)) {
+	if(currentBlock.moveDown(grid)) {
 		//Fixed to grid
 		
 		//Check whether can clear rows
@@ -116,7 +116,7 @@ void TetrisBoard::updateMovement() {
 void TetrisBoard::renewBlock(const TetrisBlock &block) {
 	currentBlock = block;
 	//Test if the block can be put
-	if(currentBlock.putBoard(static_cast<const QColor**>grid)) {
+	if(currentBlock.putBoard(grid)) {
 		//Game over
 		state = Tetris::stopped;
 		
