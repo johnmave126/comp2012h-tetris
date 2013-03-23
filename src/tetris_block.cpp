@@ -18,7 +18,6 @@
 
 #include <cstdlib>
 #include <cassert>
-#include <typeinfo>
 
 TetrisBlock::TetrisBlock(int type, int direction, QObject* parent, const char* name)
 :QObject(parent, name),
@@ -39,7 +38,8 @@ TetrisBlock::TetrisBlock(int type, int direction, QObject* parent, const char* n
 }
 
 TetrisBlock::TetrisBlock(const TetrisBlock& block)
-:id(block.id), face(block.face),
+:QObject(block.parent(), block.name),
+ id(block.id), face(block.face),
  x(block.x), y(block.y) {
 }
 
@@ -121,7 +121,7 @@ const bool** TetrisBlock::getShape(int *size, QColor *color) const {
 		//Set color
 		*color = blockColor[id];
 	}
-	return cosnt_cast<const bool**>shape[face][id];
+	return const_cast<const bool**>shape[face][id];
 }
 
 void TetrisBlock::moveLeft(const QColor** grid) {
