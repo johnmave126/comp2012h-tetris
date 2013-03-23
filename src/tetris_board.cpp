@@ -40,10 +40,12 @@ void TetrisBoard::reset() {
 	for(i = 0; i < BOARD_WIDTH; i++)
 		for(j = 0; j < BOARD_HEIGHT; j++)
 			grid[i][j].setRgb(0, 0, 0);
-	//Reset state
-	state = Tetris::playing;
+	
 	//Call for repaint
 	repaint();
+	
+	//Reset state
+	state = Tetris::playing;
 }
 
 //Simply pass the control to blocks
@@ -132,6 +134,8 @@ void TetrisBoard::renewBlock(const TetrisBlock &block) {
 		//Emit gameover signal
 		emit gameover();
 	}
+	//Call for repaint
+	repaint();
 }
 
 void TetrisBoard::paintEvent(QPaintEvent* e) {
