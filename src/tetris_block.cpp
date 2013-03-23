@@ -239,7 +239,7 @@ int TetrisBlock::moveDown(QColor grid[][BOARD_HEIGHT + 1]) {
 				if(shape[face][id][i][j]) {
 					//Solid block
 					//Put it
-					grid[i + baseX][baseY - j] = colorBlock[id];
+					grid[i + baseX][baseY - j] = blockColor[id];
 				}
 			}
 		}
