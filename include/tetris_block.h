@@ -13,6 +13,7 @@
 #define _TETRIS_BLOCK_H
 
 #include "tetris_common.h"
+#include <qobject.h>
 #include <qwidget.h>
 #include <qstring.h>
 #include <qcolor.h>
