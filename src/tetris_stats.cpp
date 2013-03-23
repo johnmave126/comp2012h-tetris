@@ -20,7 +20,6 @@
 TetrisStats::TetrisStats(QWidget* parent, const char* name)
 :QWidget(parent, name),
  predictBlock(NULL), level(1), score(0) {
- 	int i;
 	//Resize stats to a fixed size
 	setFixedSize(100, BOARD_HEIGHT);
 	
