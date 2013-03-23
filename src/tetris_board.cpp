@@ -34,6 +34,7 @@ TetrisBoard::TetrisBoard(QWidget* parent, const char* name)
 	
 	 	
  	std::cout << grid[0][0].rgb() << std::endl;
+ 	std::cout << grid[0][0].qRgb(0, 0, 0) << std::endl;
 }
 
 TetrisBoard::~TetrisBoard() {
