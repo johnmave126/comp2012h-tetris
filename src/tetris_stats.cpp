@@ -65,7 +65,7 @@ void TetrisStats::reset() {
 void TetrisStats::rowClear(int num) {
 	int i;
 	//Add up score
-	score += 10 * num * num * level;
+	score += (5 + level * 5) * num * num;
 	//Recalculate level
 	for(i = 0; i < 10 && score >= levelSet[i]; i++) {
 	}
