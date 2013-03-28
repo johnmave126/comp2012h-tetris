@@ -83,6 +83,20 @@ class TetrisBlock: public QObject {
 		const bool** getShape(int *size, QColor *color) const;
 		
 		/*
+		 * getX
+		 *
+		 * return the center x-coordinate relative to left-bottom of grid
+		 */
+		int getX() const;
+		
+		/*
+		 * getY
+		 *
+		 * return the center y-coordinate relative to left-bottom of grid
+		 */
+		int getY() const;
+		
+		/*
 		 * moveLeft
 		 *
 		 * grid: the current bottom state

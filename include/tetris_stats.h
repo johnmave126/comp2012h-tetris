@@ -35,6 +35,13 @@ class TetrisStats: public QWidget {
 		TetrisBlock getBlock() const;
 		
 		/*
+		 * getScore
+		 *
+		 * return the current score
+		 */
+		int getScore() const;
+		
+		/*
 		 * getLevel
 		 *
 		 * return the current level

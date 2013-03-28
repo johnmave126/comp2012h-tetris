@@ -42,6 +42,10 @@ TetrisBlock TetrisStats::getBlock() const {
 	return predictBlock?(*predictBlock):TetrisBlock();
 }
 
+int TetrisStats::getScore() const {
+	return score;
+}
+
 int TetrisStats::getLevel() const {
 	return level;
 }

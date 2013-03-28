@@ -65,6 +65,14 @@ TetrisBlock& TetrisBlock::operator=(const TetrisBlock& block) {
 TetrisBlock::~TetrisBlock() {
 }
 
+int TetrisBlock::getX() const {
+	return x;
+}
+
+int TetrisBlock::getY() const {
+	return y;
+}
+
 const bool** TetrisBlock::getShape(int *size, QColor *color) const {
 	if(size) {
 		//Set size
@@ -74,6 +82,7 @@ const bool** TetrisBlock::getShape(int *size, QColor *color) const {
 		//Set color
 		*color = blockColor[id];
 	}
+	//Cast from non-const to const
 	return const_cast<const bool**>(shape[face][id]);
 }
 
