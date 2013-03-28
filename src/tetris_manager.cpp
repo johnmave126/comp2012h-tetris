@@ -88,6 +88,11 @@ void TetrisManager::gameover() {
 }
 
 void TetrisManager::updateMovement() {
+	if(timer->isActive()) {
+		//Stated, stop it
+		timer->stop();
+	}
+	
 	//Ask board to update
 	gameBoard->updateMovement();
 	
